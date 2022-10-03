@@ -10,6 +10,7 @@
 int x = 1;
 int y = 2;
 int count = 0;
+DateTime d1 = DateTime.Now;
 void WriteArrayMatrix(string[,] matrix)
 {
     for (int y = 0; y < matrix.GetLength(0); y++)
@@ -58,15 +59,28 @@ void Game(string[,] matrix, int x, int y, int count)
         count = BonusCreator(matrix,x,y,count);
         matrix[y,x] = "@";
         Console.Clear();
-        if(count > 9) Console.WriteLine("Вы набрали 10 очков!!");
-        if(count > 19) Console.WriteLine("Вы набрали 20 очков!!");
-        if(count > 29) Console.WriteLine("Вы набрали 30 очков!!");
-        if(count > 39) Console.WriteLine("Вы набрали 40 очков!!");
-        if(count > 49) Console.WriteLine("Вы набрали 50 очков!!");
+        
+        if(count > 9 && count < 11) Console.WriteLine("Вы набрали 10 очков!! за ");
+        if(count > 9 && count < 11) Console.WriteLine(DateTime.Now-d1);
+        
+        if(count > 19 && count < 21) Console.WriteLine("Вы набрали 20 очков!! за ");
+        if(count > 19 && count < 21)Console.WriteLine( DateTime.Now-d1);
+        
+        if(count > 29 && count < 31)Console.WriteLine("Вы набрали 30 очков!! за ");
+        if(count > 29 && count < 31) Console.WriteLine( DateTime.Now-d1);
+       
+        if(count > 39 && count < 41)Console.WriteLine("Вы набрали 40 очков!! за ");
+        if(count > 39 && count < 41)Console.WriteLine( DateTime.Now-d1);
+    
+        
+        if(count > 49 && count < 51) Console.WriteLine("Вы набрали 50 очков!! за");
+        if(count > 49 && count < 51) Console.WriteLine( DateTime.Now-d1);
+        
         WriteArrayMatrix(matrix);
         WriteCoordinates(x,y,count);
     }
 }
+
 WriteArrayMatrix(matrix);
 Game(matrix,x,y,count);
 
